@@ -55,7 +55,8 @@ export const forgotPassword = async (req, res) => {
     user.resetPasswordExpire = Date.now() + 60 * 60 * 1000; // 1 hour
     await user.save();
 
-    const resetUri = `http://localhost:5173/reset-password/${resetToken}`
+    const resetUri = `https://sales-tracker-three-pi.vercel.app/reset-password/${resetToken}`;
+
 
     const transporter = nodemailer.createTransport({
         service: "gmail",
